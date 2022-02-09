@@ -1,24 +1,21 @@
 package libgdx.javagame.actor.animation;
 
-import com.badlogic.gdx.scenes.scene2d.Action;
-import libgdx.javagame.actor.BaseActor;
-
-
 public class ImageBasedAnimation extends AnimationController {
-
-    private Action action;
-
-    public ImageBasedAnimation(BaseActor actor, String fileName, Action action) {
-        animationLoader.loadTexture(fileName);
-        this.action = action;
-        actor.addAction(action);
+    private ImageBasedAnimation(String[] fileNames, float frameDuration, boolean loop) {
+        animationLoader.loadAnimationFromFiles(fileNames, frameDuration, loop);
     }
 
-    public Action getAction() {
-        return action;
+    private ImageBasedAnimation(String fileName, float frameDuration, int rows, int columns, boolean loop) {
+        animationLoader.loadAnimationFromSheet(fileName, frameDuration, rows, columns, loop);
     }
 
-    public void setAction(Action action) {
-        this.action = action;
+    public static ImageBasedAnimation getLoadedAnimationFromFiles(String[] fileNames, float frameDuration,
+                                                                  boolean loop) {
+        return new ImageBasedAnimation(fileNames, frameDuration, loop);
+    }
+
+    public static ImageBasedAnimation getLoadedAnimationFromSheet(String fileName, float frameDuration, int rows,
+                                                                  int columns, boolean loop) {
+        return new ImageBasedAnimation(fileName, frameDuration, rows, columns, loop);
     }
 }

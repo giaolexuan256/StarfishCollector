@@ -1,40 +1,26 @@
 package libgdx.javagame.actor;
 
 import com.badlogic.gdx.graphics.g2d.Batch;
-import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import libgdx.javagame.actor.animation.AnimationController;
+import libgdx.javagame.actor.physics.MovementHandler;
 
 public class BaseActor extends Actor {
     private AnimationController animationBehavior;
     private float elapsedTime;
+    private final MovementHandler movementHandler;
 
-    private Vector2 velocityVec;
+
 
     public BaseActor(float x, float y, Stage stage, AnimationController animationBehavior) {
         setPosition(x, y);
         stage.addActor(this);
         this.animationBehavior = animationBehavior;
         elapsedTime = 0;
-        velocityVec = new Vector2();
+        movementHandler = new MovementHandler(this);
     }
 
-    public float getSpeed() {
-        return velocityVec.len();
-    }
-
-    public void setSpeed(float speed) {
-        if (velocityVec.len() == 0) velocityVec.set(speed, 0);
-    }
-
-    public float getMotionAngle() {
-        return velocityVec.angleDeg();
-    }
-
-    public void setMotionAngle(float angle) {
-        velocityVec.setAngleDeg(angle);
-    }
 
     @Override
     public void act(float delta) {
@@ -42,7 +28,7 @@ public class BaseActor extends Actor {
 
         elapsedTime += delta;
 
-        moveBy(velocityVec.x * delta, velocityVec.y * delta);
+        moveBy(movementHandler.getVelocityVector().x * delta, movementHandler.getVelocityVector().y * delta);
 
     }
 
@@ -58,5 +44,9 @@ public class BaseActor extends Actor {
 
     public void setAnimationBehavior(AnimationController animationBehavior) {
         this.animationBehavior = animationBehavior;
+    }
+
+    public MovementHandler getMovementHandler() {
+        return movementHandler;
     }
 }
