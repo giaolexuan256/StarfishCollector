@@ -1,5 +1,7 @@
 package libgdx.javagame.actor.animation;
 
+import libgdx.javagame.actor.BaseActor;
+
 public class ImageBasedAnimation extends AnimationController {
     private ImageBasedAnimation(String[] fileNames, float frameDuration, boolean loop) {
         animationLoader.loadAnimationFromFiles(fileNames, frameDuration, loop);

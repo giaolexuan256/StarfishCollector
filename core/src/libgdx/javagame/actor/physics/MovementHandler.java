@@ -6,7 +6,7 @@ import libgdx.javagame.actor.BaseActor;
 
 public class MovementHandler {
 
-    private BaseActor actor;
+    private final BaseActor actor;
     private Vector2 velocityVector;
     private Vector2 accelerationVector;
     private float acceleration;

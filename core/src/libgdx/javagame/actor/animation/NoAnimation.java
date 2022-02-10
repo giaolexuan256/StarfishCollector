@@ -1,5 +1,7 @@
 package libgdx.javagame.actor.animation;
 
+import libgdx.javagame.actor.BaseActor;
+
 public class NoAnimation extends AnimationController {
     private NoAnimation(String fileName) {
         animationLoader.loadTexture(fileName);

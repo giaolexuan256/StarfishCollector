@@ -7,8 +7,7 @@ import libgdx.javagame.actor.animation.ValueBasedAnimation;
 public class Starfish extends BaseActor {
 
     public Starfish(float x, float y, Stage stage) {
-        super(x, y, stage, null);
-        setAnimationBehavior(ValueBasedAnimation.getInstance("starfish.png"));
+        super(x, y, stage, ValueBasedAnimation.getInstance("starfish.png"));
         addAction(Actions.forever(Actions.rotateBy(90, 1)));
     }
 }

@@ -4,7 +4,6 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import libgdx.javagame.actor.animation.ImageBasedAnimation;
-import libgdx.javagame.actor.animation.ValueBasedAnimation;
 
 public class Turtle extends BaseActor {
     public Turtle(float x, float y, Stage stage) {

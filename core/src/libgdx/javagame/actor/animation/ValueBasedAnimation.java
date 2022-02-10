@@ -1,5 +1,7 @@
 package libgdx.javagame.actor.animation;
 
+import libgdx.javagame.actor.BaseActor;
+
 public class ValueBasedAnimation extends AnimationController {
 
     private ValueBasedAnimation(String fileName) {
