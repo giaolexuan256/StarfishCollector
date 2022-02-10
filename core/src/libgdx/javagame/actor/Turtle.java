@@ -14,6 +14,9 @@ public class Turtle extends BaseActor {
                                                                                         "turtle-5.png",
                                                                                         "turtle-6.png"},
                                                                            0.1f, true));
+        getMovementHandler().setMaxSpeed(100);
+        getMovementHandler().setAcceleration(400);
+        getMovementHandler().setDeceleration(400);
     }
     @Override
     public void act(float delta) {
