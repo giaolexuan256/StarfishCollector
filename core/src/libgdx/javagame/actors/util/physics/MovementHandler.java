@@ -1,26 +1,28 @@
-package libgdx.javagame.actor.physics;
+package libgdx.javagame.actors.util.physics;
 
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
-import libgdx.javagame.actor.BaseActor;
+import libgdx.javagame.actors.util.BaseActor;
 
+/**
+ * This class using Builder Pattern to generate new object.
+ */
 public class MovementHandler {
 
     private final BaseActor actor;
-    private Vector2 velocityVector;
-    private Vector2 accelerationVector;
+    private final Vector2 velocityVector;
+    private final Vector2 accelerationVector;
     private float acceleration;
     private float maxSpeed;
     private float deceleration;
 
-
-    public MovementHandler(BaseActor actor) {
+    public MovementHandler(float maxSpeed, float acceleration, float deceleration, BaseActor actor) {
         this.actor = actor;
         velocityVector = new Vector2();
         accelerationVector = new Vector2();
-        acceleration = 0;
-        maxSpeed = 0;
-        deceleration = 0;
+        this.maxSpeed = maxSpeed;
+        this.acceleration = acceleration;
+        this.deceleration = deceleration;
     }
 
     public Vector2 getVelocityVector() {
@@ -67,7 +69,7 @@ public class MovementHandler {
     public void applyPhysics(float deltaTime) {
         velocityVector.add(accelerationVector.x * deltaTime, accelerationVector.y * deltaTime);
         float speed = getSpeed();
-        if(accelerationVector.len() == 0) speed -= deceleration * deltaTime;
+        if (accelerationVector.len() == 0) speed -= deceleration * deltaTime;
         speed = MathUtils.clamp(speed, 0, maxSpeed);
         setSpeed(speed);
         actor.moveBy(velocityVector.x * deltaTime, velocityVector.y * deltaTime);

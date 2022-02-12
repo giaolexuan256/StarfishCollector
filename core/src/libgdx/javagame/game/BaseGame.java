@@ -1,4 +1,4 @@
-package libgdx.javagame;
+package libgdx.javagame.game;
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.graphics.Color;

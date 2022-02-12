@@ -1,9 +1,8 @@
-package libgdx.javagame.actor.animation;
+package libgdx.javagame.actors.util.animation;
 
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.Action;
-import libgdx.javagame.actor.BaseActor;
 
 public abstract class AnimationController {
     protected Animation<TextureRegion> animation;

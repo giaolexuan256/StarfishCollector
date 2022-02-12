@@ -1,4 +1,4 @@
-package libgdx.javagame.actor.animation;
+package libgdx.javagame.actors.util.animation;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;

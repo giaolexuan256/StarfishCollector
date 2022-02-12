@@ -1,9 +1,11 @@
-package libgdx.javagame.actor;
+package libgdx.javagame.actors.objects;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.scenes.scene2d.Stage;
-import libgdx.javagame.actor.animation.ImageBasedAnimation;
+import libgdx.javagame.actors.util.BaseActor;
+import libgdx.javagame.actors.util.animation.ImageBasedAnimation;
+import libgdx.javagame.actors.util.physics.MovementHandler;
 
 public class Turtle extends BaseActor {
     public Turtle(float x, float y, Stage stage) {
@@ -14,9 +16,8 @@ public class Turtle extends BaseActor {
                                                                                         "turtle-5.png",
                                                                                         "turtle-6.png"},
                                                                            0.1f, true));
-        getMovementHandler().setMaxSpeed(100);
-        getMovementHandler().setAcceleration(400);
-        getMovementHandler().setDeceleration(400);
+        setMovementHandler(new MovementHandler(100, 400, 400, this));
+        setColliderPolygon(8);
     }
     @Override
     public void act(float delta) {
